@@ -1,0 +1,139 @@
+[
+  {
+    "icon_name": "小雨",
+    "weather_set": [
+      "小雨",
+      "小雨-中雨"
+    ]
+  },
+  {
+    "icon_name": "中雨",
+    "weather_set": [
+      "中雨",
+      "中雨-大雨"
+    ]
+  },
+  {
+    "icon_name": "大雨",
+    "weather_set": [
+      "大雨",
+      "大雨-暴雨"
+    ]
+  },
+  {
+    "icon_name": "暴雨",
+    "weather_set": [
+      "暴雨",
+      "阵雪",
+      "大暴雨",
+      "特大暴雨",
+      "暴雨-大暴雨",
+      "大暴雨-特大暴雨"
+    ]
+  },
+  {
+    "icon_name": "小雪",
+    "weather_set": [
+      "小雪",
+      "小雪-中雪",
+      "冻雨"
+    ]
+  },
+  {
+    "icon_name": "中雪",
+    "weather_set": [
+      "中雪",
+      "中雪-大雪"
+    ]
+  },
+  {
+    "icon_name": "大雪",
+    "weather_set": [
+      "大雪-暴雪",
+      "大雪"
+    ]
+  },
+  {
+    "icon_name": "暴雪",
+    "weather_set": [
+      "暴雪"
+    ]
+  },
+  {
+    "icon_name": "浮尘",
+    "weather_set": [
+      "浮尘"
+    ]
+  },
+  {
+    "icon_name": "扬尘",
+    "weather_set": [
+      "扬尘",
+      "扬沙"
+    ]
+  },
+  {
+    "icon_name": "沙尘暴",
+    "weather_set": [
+      "沙尘暴",
+      "强沙尘暴"
+    ]
+  },
+  {
+    "icon_name": "沙尘暴",
+    "weather_set": [
+      "沙尘暴",
+      "强沙尘暴"
+    ]
+  },
+  {
+    "icon_name": "多云",
+    "weather_set": [
+      "多云"
+    ]
+  },
+  {
+    "icon_name": "晴",
+    "weather_set": [
+      "晴"
+    ]
+  },
+  {
+    "icon_name": "阴",
+    "weather_set": [
+      "阴"
+    ]
+  },
+  {
+    "icon_name": "雨夹雪",
+    "weather_set": [
+      "雨夹雪"
+    ]
+  },
+  {
+    "icon_name": "雷阵雨",
+    "weather_set": [
+      "雷阵雨"
+    ]
+  },
+  {
+    "icon_name": "雷阵雨伴有冰雹",
+    "weather_set": [
+      "雷阵雨伴有冰雹"
+    ]
+  },
+  {
+    "icon_name": "雾",
+    "weather_set": [
+      "雾"
+    ]
+  },
+  {
+    "icon_name": "霾",
+    "weather_set": [
+      "霾"
+    ]
+  }
+
+
+]

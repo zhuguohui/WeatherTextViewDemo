@@ -1,0 +1,15 @@
+apply plugin: 'java-library'
+apply plugin: 'idea'
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.code.gson:gson:2.2.4'
+}
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn tasks.findByName('idea')
+    options.encoding = "UTF-8"
+}
+
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

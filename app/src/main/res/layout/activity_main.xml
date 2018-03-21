@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context="com.zgh.weathertextviewdemo.MainActivity">
+
+        <com.zgh.weather.view.WeatherTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Hello World!" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#888888" />
+
+        <com.zgh.weather.view.WeatherTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Hello World!"
+            android:textColor="#ff0000"
+            android:textSize="20sp"
+            app:WeatherTextViewCityName="北京"
+            app:WeatherTextViewIconColor="#ff0000"
+            app:WeatherTextViewIconSize="30dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#888888" />
+
+        <com.zgh.weather.view.WeatherTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Hello World!"
+            android:textColor="#0000ff"
+            android:textSize="20sp"
+            app:WeatherTextViewCityName="北京"
+            app:WeatherTextViewFormatString="自定义消息格式:{currentCity}- {weather_data[0].date} 温度：{weather_data[0].temperature}"
+            app:WeatherTextViewIconColor="#0000ff"
+            app:WeatherTextViewIconSize="30dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#888888" />
+
+        <com.zgh.weather.view.WeatherTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Hello World!"
+            android:textColor="#00ff00"
+            android:textSize="20sp"
+            app:WeatherTextViewCityName="上海"
+            app:WeatherTextViewFormatString="自定义图标位置\n{currentCity}- {weather_data[0].date}\n天气:{weather_data[0].weather} \n 温度：{weather_data[0].temperature}"
+            app:WeatherTextViewIconColor="#00ff00"
+            app:WeatherTextViewIconLocation="top"
+            app:WeatherTextViewIconSize="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#888888" />
+
+        <com.zgh.weather.view.WeatherTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Hello World!"
+            android:textColor="#00ff00"
+            android:textSize="20sp"
+            app:WeatherTextViewCityName="上海"
+            app:WeatherTextViewDayOffset="1"
+            app:WeatherTextViewFormatString="明天天气\n{currentCity}- {weather_data[1].date}\n天气:{weather_data[1].weather} \n 温度：{weather_data[1].temperature}"
+            app:WeatherTextViewIconColor="#00ff00"
+            app:WeatherTextViewIconLocation="top"
+            app:WeatherTextViewIconSize="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#888888" />
+    </LinearLayout>
+</ScrollView>
