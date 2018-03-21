@@ -1,19 +1,21 @@
 package com.zgh.weather.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 
 import com.zgh.weather.R;
 import com.zgh.weather.WeatherMananger;
-import com.zgh.weather.bean.BaiduWeatherDataBean;
 import com.zgh.weather.bean.WeatherResult;
+
 
 import rx.android.schedulers.AndroidSchedulers;
 
@@ -22,14 +24,16 @@ import rx.android.schedulers.AndroidSchedulers;
  */
 
 public class WeatherTextView extends android.support.v7.widget.AppCompatTextView {
-    private static long lastLoadTime = 0;//上一次加载的时间
-    private static final long AUTO_LOAD_TIME_SPAN = 10 * 60 * 1000;//自动加载事件间隔10分钟
-    private static WeatherResult mWeatherResult = null;
-    private static Drawable weatherDrawable;
+    private long lastLoadTime = 0;//上一次加载的时间
     private static final int DEFAULT_ICON_COLOR = Color.parseColor("#6C6C6C");
     private static final int DEFAULT_ICON_SIZE = 42;
     private static final String DEFAULT_FORMAT_STRING = "{weather_data[0].weather}";
+    private static final int WHAT_UPDATE = 1;
+    private static final int STOP_UPDATE = -1;
 
+
+    private WeatherResult mWeatherResult = null;
+    private Drawable weatherDrawable;
     private static final String DEFAULT_CITY_NAME = "成都";
     private int iconColor;
     private int iconSize = 42;
@@ -38,6 +42,24 @@ public class WeatherTextView extends android.support.v7.widget.AppCompatTextView
     private String formatString;
     private Drawable[] iconArray = new Drawable[4];
     private int iconLocationIndex = 0;
+    private long autoUpdateTime = STOP_UPDATE;
+
+    @SuppressLint("HandlerLeak")
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case WHAT_UPDATE:
+                    if (autoUpdateTime != STOP_UPDATE) {
+                        loadWeatherData(true);
+                        sendEmptyMessageDelayed(WHAT_UPDATE,autoUpdateTime);
+                    } else {
+                        removeMessages(WHAT_UPDATE);
+                    }
+                    break;
+            }
+        }
+    };
 
     public WeatherTextView(Context context) {
         this(context, null);
@@ -52,36 +74,46 @@ public class WeatherTextView extends android.support.v7.widget.AppCompatTextView
         formatString = typedArray.getString(R.styleable.WeatherTextView_WeatherTextViewFormatString);
         iconLocationIndex = typedArray.getInt(R.styleable.WeatherTextView_WeatherTextViewIconLocation, 0);
         dayOffset = typedArray.getInt(R.styleable.WeatherTextView_WeatherTextViewDayOffset, 0);
+        autoUpdateTime = typedArray.getInt(R.styleable.WeatherTextView_WeatherTextViewAutoUpdateTime, STOP_UPDATE);
         if (TextUtils.isEmpty(cityName)) {
             cityName = DEFAULT_CITY_NAME;
         }
         if (TextUtils.isEmpty(formatString)) {
             formatString = DEFAULT_FORMAT_STRING;
         }
-        typedArray.recycle();
         if (!isInEditMode()) {
-            post(() -> {
-                loadWeatherData(true);
-            });
+            loadWeatherData(true);
         }
+        typedArray.recycle();
         setOnClickListener(v -> {
             loadWeatherData(false);
         });
     }
 
-    /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-     */
-    public static int dip2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        handler.sendEmptyMessage(WHAT_UPDATE);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        //停止消息发送，防止内存溢出
+        handler.removeMessages(WHAT_UPDATE);
+    }
+
+    public void setAutoUpdateTime(long autoUpdateTime) {
+        this.autoUpdateTime = autoUpdateTime;
+        handler.sendEmptyMessage(WHAT_UPDATE);
     }
 
     private void loadWeatherData(boolean autoLoad) {
         if (autoLoad) {
             //判断是否加载过了
             long passTime = System.currentTimeMillis() - lastLoadTime;
-            if (mWeatherResult != null && weatherDrawable != null && passTime < AUTO_LOAD_TIME_SPAN) {
+            if (mWeatherResult != null && weatherDrawable != null && passTime < autoUpdateTime) {
                 setUIByWeather();
                 return;
             }
@@ -126,4 +158,6 @@ public class WeatherTextView extends android.support.v7.widget.AppCompatTextView
         this.formatString = formatString;
         loadWeatherData(false);
     }
+
+
 }

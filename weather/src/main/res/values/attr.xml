@@ -6,6 +6,7 @@
         <attr name="WeatherTextViewCityName" format="string" />
         <attr name="WeatherTextViewFormatString" format="string" />
         <attr name="WeatherTextViewDayOffset" format="integer" />
+        <attr name="WeatherTextViewAutoUpdateTime" format="integer" />
         <attr name="WeatherTextViewIconLocation" format="enum">
             <enum name="left" value="0" />
             <enum name="top" value="1" />

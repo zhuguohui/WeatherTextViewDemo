@@ -103,5 +103,27 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="#888888" />
+
+        <com.zgh.weather.view.WeatherTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Hello World!"
+            android:textColor="#00ff00"
+            android:textSize="20sp"
+            app:WeatherTextViewAutoUpdateTime="10000"
+            app:WeatherTextViewCityName="上海"
+            app:WeatherTextViewDayOffset="1"
+            app:WeatherTextViewFormatString="10秒钟自动刷新\n明天天气\n{currentCity}- {weather_data[1].date}\n天气:{weather_data[1].weather} \n 温度：{weather_data[1].temperature}"
+            app:WeatherTextViewIconColor="#00ff00"
+            app:WeatherTextViewIconLocation="left"
+            app:WeatherTextViewIconSize="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#888888" />
     </LinearLayout>
 </ScrollView>
