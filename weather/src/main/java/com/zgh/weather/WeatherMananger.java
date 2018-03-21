@@ -38,9 +38,18 @@ public class WeatherMananger {
     private static HttpProvider httpProvider;
     private static List<WeatherIconMap> weatherIconMaps;
     private static final String DEAFULT_ICON_NAME = "阴";
+    private static String BaiduAK = "";
     private static Gson gson = new Gson();
 
-    public static void init(Context context, HttpProvider httpProvider) {
+    /**
+     *
+     * @param context
+     * @param httpProvider
+     * @param BaiduAK 建议使用注解的百度ak，每一个ak每天免费获取5000次 ，
+     *                <p>注册地址http://lbsyun.baidu.com/apiconsole/key
+     *                <p>使用详情：http://blog.csdn.net/younghaiqing/article/details/54799303
+     */
+    public static void init(Context context, HttpProvider httpProvider, String BaiduAK) {
         if (httpProvider == null) {
             throw new IllegalArgumentException("HttpProvider must be not null");
         }
@@ -53,7 +62,7 @@ public class WeatherMananger {
             throw new IllegalArgumentException("read weather config file fail");
         }
 
-
+        WeatherMananger.BaiduAK = BaiduAK;
     }
 
     private static boolean readConfigFromRaw(Context context) {
@@ -95,7 +104,7 @@ public class WeatherMananger {
      * @return
      */
     public static Observable<WeatherResult> getWeatherInfo(final Context context, String cityName, int dayOffset, final int iconColor, String formatString) {
-        String url = String.format(NetAddress.BAIDU_WEATHER_API, URLEncoder.encode(cityName));
+        String url = String.format(NetAddress.BAIDU_WEATHER_API, BaiduAK, URLEncoder.encode(cityName));
         return httpProvider.getString(url)
                 .subscribeOn(Schedulers.io())
                 .map(str -> {

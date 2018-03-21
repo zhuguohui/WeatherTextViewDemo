@@ -6,5 +6,5 @@ package com.zgh.weather.config;
  */
 
 public interface NetAddress {
-    String BAIDU_WEATHER_API = "http://api.map.baidu.com/telematics/v3/weather?output=json&ak=qpwrPxG2fx0TG3hLxerp8uMK&location=%s";
+    String BAIDU_WEATHER_API = "http://api.map.baidu.com/telematics/v3/weather?output=json&ak=%s&location=%s";
 }
