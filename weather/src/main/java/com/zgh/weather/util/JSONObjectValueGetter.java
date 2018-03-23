@@ -37,6 +37,7 @@ public class JSONObjectValueGetter {
             valueHolderList.add(valueHolder);
 
         }
+        //Pattern.LITERAL 表示要传入的要替换的内容是字符串，而不是正则表达式。
         for (ValueHolder valueHolder : valueHolderList) {
             testFormat = Pattern.compile(valueHolder.getKey(), Pattern.LITERAL).matcher(
                     testFormat).replaceFirst(Matcher.quoteReplacement(valueHolder.getValue()));
