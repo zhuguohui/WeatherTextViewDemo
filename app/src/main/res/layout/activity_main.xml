@@ -13,6 +13,12 @@
         android:orientation="vertical"
         tools:context="com.zgh.weathertextviewdemo.MainActivity">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="默认样式" />
+
         <com.zgh.weather.view.WeatherTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,6 +31,12 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="#888888" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="支持自定义图标颜色和图标大小" />
 
         <com.zgh.weather.view.WeatherTextView
             android:layout_width="wrap_content"
@@ -44,6 +56,13 @@
             android:layout_marginTop="10dp"
             android:background="#888888" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="支持自定义消息格式,当前格式为：\n{currentCity}- {weather_data[0].date} 温度：{weather_data[0].temperature}" />
+
         <com.zgh.weather.view.WeatherTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +71,7 @@
             android:textColor="#0000ff"
             android:textSize="20sp"
             app:WeatherTextViewCityName="北京"
-            app:WeatherTextViewFormatString="自定义消息格式:{currentCity}- {weather_data[0].date} 温度：{weather_data[0].temperature}"
+            app:WeatherTextViewFormatString="{currentCity}- {weather_data[0].date} 温度：{weather_data[0].temperature}"
             app:WeatherTextViewIconColor="#0000ff"
             app:WeatherTextViewIconSize="30dp" />
 
@@ -63,6 +82,13 @@
             android:layout_marginTop="10dp"
             android:background="#888888" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="支持自定义图标位置，当前为top" />
+
         <com.zgh.weather.view.WeatherTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,7 +97,6 @@
             android:textColor="#00ff00"
             android:textSize="20sp"
             app:WeatherTextViewCityName="上海"
-            app:WeatherTextViewFormatString="自定义图标位置\n{currentCity}- {weather_data[0].date}\n天气:{weather_data[0].weather} \n 温度：{weather_data[0].temperature}"
             app:WeatherTextViewIconColor="#00ff00"
             app:WeatherTextViewIconLocation="top"
             app:WeatherTextViewIconSize="20dp" />
@@ -82,6 +107,13 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="#888888" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="可以获取明天，后天，外天，三天以后的天气" />
 
         <com.zgh.weather.view.WeatherTextView
             android:layout_width="wrap_content"
@@ -92,7 +124,7 @@
             android:textSize="20sp"
             app:WeatherTextViewCityName="上海"
             app:WeatherTextViewDayOffset="1"
-            app:WeatherTextViewFormatString="明天天气\n{currentCity}- {weather_data[1].date}\n天气:{weather_data[1].weather} \n 温度：{weather_data[1].temperature}"
+            app:WeatherTextViewFormatString="明天天气\n{currentCity}- {weather_data[1].date}\n天气:{weather_data[1].weather}"
             app:WeatherTextViewIconColor="#00ff00"
             app:WeatherTextViewIconLocation="top"
             app:WeatherTextViewIconSize="20dp" />
@@ -103,6 +135,13 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="#888888" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="可以配置刷新事件" />
 
         <com.zgh.weather.view.WeatherTextView
             android:layout_width="wrap_content"
@@ -114,7 +153,6 @@
             app:WeatherTextViewAutoUpdateTime="10000"
             app:WeatherTextViewCityName="上海"
             app:WeatherTextViewDayOffset="1"
-            app:WeatherTextViewFormatString="10秒钟自动刷新\n明天天气\n{currentCity}- {weather_data[1].date}\n天气:{weather_data[1].weather} \n 温度：{weather_data[1].temperature}"
             app:WeatherTextViewIconColor="#00ff00"
             app:WeatherTextViewIconLocation="left"
             app:WeatherTextViewIconSize="20dp" />

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="WeatherTextView">
+        <!--图标颜色-->
         <attr name="WeatherTextViewIconColor" format="color" />
+        <!--图标大小-->
         <attr name="WeatherTextViewIconSize" format="dimension" />
+        <!--天气预报城市名称，支持市和县-->
         <attr name="WeatherTextViewCityName" format="string" />
+        <!--自定义要显示的数据-->
         <attr name="WeatherTextViewFormatString" format="string" />
+        <!--要显示多少天以后的数据，0表示今天，最多支持3-->
         <attr name="WeatherTextViewDayOffset" format="integer" />
+        <!--自动更新的时间，单位为毫秒。-1 表示不更新-->
         <attr name="WeatherTextViewAutoUpdateTime" format="integer" />
+        <!--图标显示在文字的那一边-->
         <attr name="WeatherTextViewIconLocation" format="enum">
             <enum name="left" value="0" />
             <enum name="top" value="1" />
