@@ -135,11 +135,13 @@ public class WeatherTextView extends android.support.v7.widget.AppCompatTextView
 
     private void setUIByWeather() {
         setText(mWeatherResult.getWeatherString());
+        //设置图标大小
         weatherDrawable.setBounds(0, 0, iconSize, iconSize);
         iconArray[0] = null;
         iconArray[1] = null;
         iconArray[2] = null;
         iconArray[3] = null;
+        //通过iconLocationIndex 控制图标出现的位置
         iconArray[iconLocationIndex] = weatherDrawable;
         setCompoundDrawables(iconArray[0], iconArray[1], iconArray[2], iconArray[3]);
     }
